@@ -1,0 +1,39 @@
+#submenu li a{
+    color: #fff;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  
+  }
+  
+  /* Imageslider.css */
+  #carouselExampleSlidesOnly {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1; /* Set a lower z-index to appear behind other elements */
+  }
+  
+/* Custom CSS for navbar links */
+.nav-link {
+    color: white !important; /* Ensure the font color is white */
+    margin-right: 15px; /* Add space between the links */
+  }
+  
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-item {
+    margin-left: 10px; /* Additional spacing for navbar items */
+  }
+/* Custom CSS for the buttons */
+.btn-gap {
+    margin-left: 10px; /* Adjust the margin value as needed */
+  }
+
+  #container-d{
+    background-color: black;
+  }
+    
