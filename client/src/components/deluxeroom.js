@@ -1,10 +1,14 @@
 import React, { useState,useContext } from 'react';
 import dlogo from '../images/deluxeroom.png';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext.js';
 
 const DeluxeRoom = ({ handleBook }) => {
     const { user } = useContext(AuthContext);
+    var datetime = new Date();
+    var date = datetime.toISOString().slice(0,10);
+    const navigate = useNavigate();
 
     const [quantity, setQuantity] = useState(0);
 
@@ -22,8 +26,10 @@ const DeluxeRoom = ({ handleBook }) => {
         const handleBookNow = async (e) => {
             e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:8000/deluxe-room', { username:user.username, quantity });
-            alert(response.data);
+            await axios.post('http://localhost:8000/deluxe-room', { username:user.username, quantity,date });
+            alert("Room Booked");
+            navigate('/account');
+
             // Handle success if needed
         } catch (error) {
             console.error('Error:', error);

@@ -1,0 +1,24 @@
+#element {
+    font-family: 'Digital-7 Mono', monospace; /* You can use a digital-style font */
+    font-size: 2em;
+    color:white; /* Green color for a digital clock effect */
+    text-shadow: 0 0 5pxwhite;
+  }
+  
+  @font-face {
+    font-family: 'Digital-7 Mono';
+    src: url('https://fonts.cdnfonts.com/s/9468/Digital7Mono.ttf') format('truetype');
+  }
+  
+  #container {
+    position: fixed;
+    bottom: 250px;
+    left: 200px;
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black background */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  

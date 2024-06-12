@@ -1,6 +1,5 @@
-// MyAccount.js
-// MyAccount.js
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import { AuthContext } from './AuthContext.js';
 import './Myacc.css';
 
@@ -17,11 +16,11 @@ const MyAccount = () => {
                 <h1>My Account</h1>
                 <p>Welcome, {user.username}</p>
                 <p>Email: {user.email}</p>
-                {/* Display other user information as needed */}
+                
+                <Link to="/booking-history">Booking History</Link> 
             </div>
         </div>
     );
 };
 
 export default MyAccount;
-

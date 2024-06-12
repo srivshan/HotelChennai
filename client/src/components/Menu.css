@@ -1,0 +1,26 @@
+.Menu_head {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .menu {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+  
+  .menu-item {
+    margin-bottom: 30px;
+  }
+  
+  .menu-item h3 {
+    color: #333;
+  }
+  
+  .menu-item p {
+    color: #666;
+  }
+  
+  .container{
+    background-color: white;
+  }

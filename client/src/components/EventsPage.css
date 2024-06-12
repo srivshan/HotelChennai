@@ -1,0 +1,43 @@
+.evcont{
+    background-color: white;
+    padding-bottom: 50px;
+}
+.events-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.events-page-content {
+    max-width: 800px; /* Adjust the maximum width of the content section */
+    margin-bottom: 30px; /* Add some margin at the bottom */
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 20px; /* Add some margin at the bottom */
+}
+.page-header h1{
+    font-style:italic;
+}
+
+.page-content {
+    text-align: justify; /* Justify the text */
+}
+
+.text-section {
+    margin-bottom: 20px; /* Add some margin at the bottom */
+}
+
+.image-slider-section {
+    width: 100%;
+    max-width: 800px; /* Adjust the maximum width of the image slider */
+}
+
+.carousel {
+    width: 100%;
+}
+
+.carousel-item img {
+    height: 400px; /* Adjust the height of the images in the slider */
+}

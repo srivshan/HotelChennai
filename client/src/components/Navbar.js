@@ -6,6 +6,7 @@ import '../App.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/AuthContext.js';
 
+
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -14,6 +15,7 @@ const Navbar = () => {
         if (user) {
             navigate('/standard-room');
         } else {
+            alert("Please Login before Booking");
             navigate('/login');
         }
     };
@@ -32,34 +34,34 @@ const Navbar = () => {
                                     <Link to="/home" className="nav-link p-3"><b>HOME</b></Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link to="/Meetings" className="nav-link p-3"><b>MEETINGS & EVENTS</b></Link>
+                                    <Link to="/meetings" className="nav-link p-3"><b>MEETINGS & EVENTS</b></Link>
                                 </li>
+                                
                                 <li className="nav-item">
-                                    <Link to="/offers" className="nav-link p-3"><b>OFFERS</b></Link>
+                                    <Link to="/contact-us" className="nav-link p-3"><b>CONTACT US</b></Link>
                                 </li>
-                                <li className="nav-item">
-                                    <Link to="/contact" className="nav-link p-3"><b>CONTACT US</b></Link>
-                                </li>
+                                
                             </ul>
                         </div>
-                        <div className="d-flex">
+                        <div className="d-flex align-items-center custom-button-spacing">
                             {user ? (
                                 <>
                                     <Link to="/account">
-                                        <button className="btn btn-primary p-2">My Account</button>
+                                        <button type="" className="btn btn-primary p-2 mr-2">My Account</button>
                                     </Link>
-                                    <button className="btn btn-secondary p-2 ml-2" onClick={logout}>Logout</button>
-                                    <button className="btn btn-primary p-2 ml-2" onClick={handleBookNow}>BOOK NOW</button>
+                                    <button type="button" className="btn btn-secondary p-2" onClick={logout}>Logout</button>
+                                    <button className="btn btn-primary p-2" onClick={handleBookNow}>BOOK NOW</button>
                                 </>
                             ) : (
                                 <>
                                     <Link to="/login">
-                                        <button className="btn btn-primary p-2">Login/Sign Up</button>
+                                        <button className="btn btn-primary p-2 mr-2">Login/Sign Up</button>
                                     </Link>
-                                    <button className="btn btn-primary p-2 ml-2" onClick={handleBookNow}>BOOK NOW</button>
+                                    <button type="button" className="btn btn-primary p-2" onClick={handleBookNow}>BOOK NOW</button>
                                 </>
                             )}
                         </div>
+
                     </div>
                 </nav>
 
@@ -67,38 +69,35 @@ const Navbar = () => {
                     <div className="container-fluid navbar navbar-expand-lg navbar-light bg-black">
                         <ul className="navbar-nav mx-auto align-items-center" id="submenu">
                             <li className="nav-item">
-                                <a className="nav-link" href="/#">THE HOTEL, CHENNAI</a>
+                                <Link to="/about-us" className="nav-link ">THE HOTEL, CHENNAI</Link>
+                                
                             </li>
                             <li className="nav-item dropdown">
                                 <Link to="/room" className="nav-link p-3 dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <b>ROOMS</b>
                                 </Link>
-                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown" id = "container-d">
+                                <ul className="dropdown-menu" aria-labelledby="navbarDropdown" id="container-d">
                                     <li><Link to="/deluxe-room" className="dropdown-item">Deluxe Room</Link></li>
                                     <li><Link to="/standard-room" className="dropdown-item">Standard Room</Link></li>
                                 </ul>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/#">DINING</a>
+                                <Link to="/dining" className="nav-link ">DINING</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/#">MEETINGS & EVENTS</a>
+                                <Link to="/offers" className="nav-link ">OFFERS</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/#">OFFERS</a>
+                                <Link to="/gallery" className="nav-link ">GALLERY</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/#">GALLERY</a>
+                                <Link to="/videos" className="nav-link ">VIDEOS</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/#">VIDEOS</a>
+                                <Link to="/facilities" className="nav-link ">FACILITIES</Link>
                             </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/#">FACILITIES</a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="/#">LOCATION</a>
-                            </li>
+                           
+                            
                         </ul>
                     </div>
                 </nav>

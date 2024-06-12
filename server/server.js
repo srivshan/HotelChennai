@@ -44,47 +44,13 @@ app.post('/signup', async (req, res) => {
 
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
-        const query1 = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
-        const query2 = 'INSERT INTO bookings (username) VALUES (?)';
-
-        // Start a transaction
-        db.beginTransaction((err) => {
+        const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+        db.query(query, [username, email, hashedPassword], (err, results) => {
             if (err) {
-                console.error('Transaction error:', err);
-                return res.status(500).send('Transaction error');
+                console.error('Error inserting data:', err);
+                return res.status(500).send('Server error');
             }
-
-            // Insert into users table
-            db.query(query1, [username, email, hashedPassword], (err, results) => {
-                if (err) {
-                    db.rollback(() => {
-                        console.error('Error inserting user data:', err);
-                        return res.status(500).send('Error inserting user data');
-                    });
-                } else {
-                    // Insert into bookings table
-                    db.query(query2, [username], (err, results) => {
-                        if (err) {
-                            db.rollback(() => {
-                                console.error('Error inserting booking data:', err);
-                                return res.status(500).send('Error inserting booking data');
-                            });
-                        } else {
-                            // Commit the transaction
-                            db.commit((err) => {
-                                if (err) {
-                                    db.rollback(() => {
-                                        console.error('Error committing transaction:', err);
-                                        return res.status(500).send('Error committing transaction');
-                                    });
-                                } else {
-                                    res.status(201).send('User registered successfully');
-                                }
-                            });
-                        }
-                    });
-                }
-            });
+            res.status(201).send('User registered successfully');
         });
     } catch (error) {
         console.error('Error hashing password:', error);
@@ -124,17 +90,63 @@ app.post('/login', (req, res) => {
 
 
 app.post('/deluxe-room', (req, res) => {
-    const { username, quantity } = req.body;
+    const { username, quantity,date } = req.body;
 
     // Update the user's table in MySQL with the booked rooms
-    const dquery = 'UPDATE bookings SET deluxe_room_quantity = ? WHERE username = ?';
+    const dquery = 'INSERT INTO bookings (username, deluxe_room_quantity, deluxe_room_booked_time) VALUES (?, ?, ?)';
 
-    db.query(dquery, [quantity, username], (error, results) => {
+    db.query(dquery, [username ,quantity,date], (error, results) => {
         if (error) {
             console.error('Error:', error);
             res.status(500).json({ success: false, error: 'An error occurred while booking the room' });
         } else {
             res.json({ success: true, message: 'Room booked successfully' });
+        }
+    });
+});
+
+
+app.post('/standard-room', (req, res) => {
+    const { username, quantity,date } = req.body;
+
+    // Update the user's table in MySQL with the booked rooms
+    const squery = 'INSERT INTO bookings (username, standard_room_quantity, standard_room_booked_time) VALUES (?, ?, ?)';
+
+    db.query(squery, [username ,quantity,date], (error, results) => {
+        if (error) {
+            console.error('Error:', error);
+            res.status(500).json({ success: false, error: 'An error occurred while booking the room' });
+        } else {
+            res.json({ success: true, message: 'Room booked successfully' });
+        }
+    });
+});
+
+
+app.post('/contact-us', (req, res) => {
+    const { name, email, phone, comments } = req.body;
+  
+    const insertQuery = 'INSERT INTO contacts (name, email, phone, comments) VALUES (?, ?, ?, ?)';
+    db.query(insertQuery, [name, email, phone, comments], (err, results, fields) => {
+      if (err) {
+        console.error('Error inserting data:', err.stack);
+        return res.status(500).send('Failed to submit form data');
+      }
+      res.status(200).send('Form data submitted successfully');
+    });
+  });
+// Server endpoint to retrieve booking history for a user
+app.post('/booking-history', (req, res) => {
+    const { username } = req.body;
+
+    // Query the database to fetch booking history for the specified username
+    const query = 'SELECT * FROM bookings WHERE username = ?';
+    db.query(query, [username], (error, results) => {
+        if (error) {
+            console.error('Error:', error);
+            res.status(500).json({ success: false, error: 'An error occurred while fetching booking history' });
+        } else {
+            res.json({ success: true, bookingHistory: results });
         }
     });
 });
