@@ -1,5 +1,5 @@
-Steps to run this code:
-1.first clone this git repo into your pc.
-2. Install node 
-3.Install any source code editor like vscode.
-4.run npm install in terminal after opening the code folder.
+1. First, clone this git repo into your PC.
+2. Install Node.
+3. Install any source code editor like VSCode.
+4. Run `npm install` in the terminal after opening the code folder.
+
