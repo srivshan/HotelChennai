@@ -26,14 +26,14 @@ function Signup() {
         console.log(username);
         console.log(email);
         console.log(password);
-        console.log(response.data);
+        
     };
 
     const containerStyle = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '80vh',
+        height: '75vh',
       
     };
 

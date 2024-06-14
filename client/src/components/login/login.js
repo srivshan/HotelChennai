@@ -23,7 +23,7 @@ function Login() {
     };
 
     return (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '75vh' }}>
             <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '8px', boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)', width: '100%', maxWidth: '400px', boxSizing: 'border-box' }}>
                 <h1>Login</h1>
                 <form onSubmit={handleSubmit}>

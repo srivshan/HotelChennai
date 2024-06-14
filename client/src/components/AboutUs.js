@@ -16,7 +16,7 @@ const AboutUs = () => {
                 </header>
                 <section className="page-content">
                     <div className="text-section">
-                        <img src={image1} alt="hi"/>
+                        <img src={image1} alt="hi"style={{float:'left', margin:'10px'}}/>
                         <p id="text">{loremText}</p>
                     </div>
                 </section>

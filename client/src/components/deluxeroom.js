@@ -39,10 +39,10 @@ const DeluxeRoom = ({ handleBook }) => {
     
 
     return (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
+        <div className="d-flex justify-content-center align-items-center" style={{ height: '75vh' }}>
             <div className="card">
                 <div className="card-body">
-                    <img src={dlogo} className="card-img-top" height="250" width="250" alt="standard room"/>  
+                    <img src={dlogo} className="card-img-top" height="150" width="150" alt="standard room"/>  
                     <h2 className="text-center"> Deluxe Room</h2>
                     <p>A spacious and luxurious room with modern amenities. Perfect for a relaxing stay.</p>
                     <ul>
