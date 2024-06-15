@@ -6,11 +6,11 @@ const cors=require('cors');
 const app = express();
 const corsOptions ={
    origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
+   credentials:true,            
    optionSuccessStatus:200,
 }
 
-app.use(cors(corsOptions)) // Use this after the variable declaration
+app.use(cors(corsOptions)) 
 
 
 const port = 8000;
@@ -34,7 +34,7 @@ db.connect((err) => {
     console.log('Connected to the MySQL database.');
 });
 
-// Signup route
+
 app.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -58,7 +58,7 @@ app.post('/signup', async (req, res) => {
     }
 });
 
-// Login route
+
 app.post('/login', (req, res) => {
     const { email, password } = req.body;
 
@@ -92,7 +92,7 @@ app.post('/login', (req, res) => {
 app.post('/deluxe-room', (req, res) => {
     const { username, quantity,date } = req.body;
 
-    // Update the user's table in MySQL with the booked rooms
+   
     const dquery = 'INSERT INTO bookings (username, deluxe_room_quantity, deluxe_room_booked_time) VALUES (?, ?, ?)';
 
     db.query(dquery, [username ,quantity,date], (error, results) => {
@@ -109,7 +109,7 @@ app.post('/deluxe-room', (req, res) => {
 app.post('/standard-room', (req, res) => {
     const { username, quantity,date } = req.body;
 
-    // Update the user's table in MySQL with the booked rooms
+   
     const squery = 'INSERT INTO bookings (username, standard_room_quantity, standard_room_booked_time) VALUES (?, ?, ?)';
 
     db.query(squery, [username ,quantity,date], (error, results) => {
@@ -135,11 +135,11 @@ app.post('/contact-us', (req, res) => {
       res.status(200).send('Form data submitted successfully');
     });
   });
-// Server endpoint to retrieve booking history for a user
+
+
 app.post('/booking-history', (req, res) => {
     const { username } = req.body;
 
-    // Query the database to fetch booking history for the specified username
     const query = 'SELECT * FROM bookings WHERE username = ?';
     db.query(query, [username], (error, results) => {
         if (error) {

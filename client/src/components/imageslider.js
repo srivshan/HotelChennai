@@ -13,7 +13,7 @@ function Imageslider() {
         // Initialize the Bootstrap Carousel
         new window.bootstrap.Carousel(document.getElementById('carouselExampleSlidesOnly'), {
             interval: 4000, // Set the interval in milliseconds (e.g., 2000ms or 2 seconds)
-            // You can customize other options here
+            
         });
     }, []);
     return (
