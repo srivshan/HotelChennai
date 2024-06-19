@@ -37,7 +37,7 @@ db.connect((err) => {
 
 // Signup route
 
-const ZeroBounceApiKey = 'e55158c2ee6946c3b253950455b965eb'; 
+
 
 app.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
