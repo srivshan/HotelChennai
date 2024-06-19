@@ -40,9 +40,9 @@
   /* src/App.css */
 
 .contact-form {
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 15px;
   border: 1px solid #ccc;
   border-radius: 10px;
   background-color: #f9f9f9;

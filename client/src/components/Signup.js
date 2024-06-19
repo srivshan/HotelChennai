@@ -33,7 +33,7 @@ function Signup() {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '80vh',
+        height: '75vh',
       
     };
 

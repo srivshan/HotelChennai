@@ -3,6 +3,7 @@ import './Menu.css'; // Import your CSS file
 
 const Menu = () => {
   return (
+    <div className='bg-white'>
     <div className="container">
       <h1 className="Menu_head">Explore Our Menu</h1>
       <div className="menu">
@@ -57,6 +58,7 @@ const Menu = () => {
           </section>
         </div>
       </div>
+    </div>
     </div>
   );
 };

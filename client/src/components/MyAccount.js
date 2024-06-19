@@ -11,7 +11,7 @@ const MyAccount = () => {
     }
 
     return (
-        <div className="my-account-container">
+        <div className="my-account-container" style={{height:'75vh'}}>
             <div className="my-account-box">
                 <h1>My Account</h1>
                 <p>Welcome, {user.username}</p>

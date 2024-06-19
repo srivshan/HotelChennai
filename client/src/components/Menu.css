@@ -1,6 +1,6 @@
 .Menu_head {
     text-align: center;
-    margin-top: 50px;
+    
   }
   
   .menu {
@@ -23,4 +23,5 @@
   
   .container{
     background-color: white;
+    display: block;
   }
