@@ -29,7 +29,7 @@ const GalleryPage = () => {
 
     return (
         <div className='galcont'>
-        <div className="container "  style={{ height: '82.5vh' }}>
+        <div className="container "  style={{ height: '82vh' }}>
             <h1 className="text-center mb-4">Image Gallery</h1>
             <div className="row">
                 {images.map((image) => (

@@ -37,7 +37,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className=" justify-content-center align-items-center" style={{ height: '60vh', margin:'60px' }}>
+    <div className=" justify-content-center align-items-center" style={{ height: '45vh', margin:'10px' }}>
     <form onSubmit={handleSubmit} className="contact-form">
       <h2>Contact Us</h2>
       <div className="form-group">

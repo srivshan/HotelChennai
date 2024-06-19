@@ -39,7 +39,7 @@ const StandardRoom = ({ handleBook }) => {
 
 
     return (
-        <div className="d-flex justify-content-center align-items-center" style={{ height: '75vh' }}>
+        <div className="d-flex justify-content-center align-items-center" style={{ height: '78vh' }}>
     <div className="card">
         <div className="card-body">
             <img src={slogo} className="card-img-top" height="250" width="250" alt="standard room"/>  
