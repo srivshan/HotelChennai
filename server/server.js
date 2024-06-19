@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
 const cors=require('cors');
+const axios = require('axios');
 const app = express();
 const corsOptions ={
    origin:'*', 
@@ -35,6 +36,9 @@ db.connect((err) => {
 });
 
 // Signup route
+
+const ZeroBounceApiKey = 'e55158c2ee6946c3b253950455b965eb'; 
+
 app.post('/signup', async (req, res) => {
     const { username, email, password } = req.body;
 
@@ -42,18 +46,35 @@ app.post('/signup', async (req, res) => {
         return res.status(400).send('Please provide username, email, and password');
     }
 
+ 
     try {
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
-        db.query(query, [username, email, hashedPassword], (err, results) => {
-            if (err) {
-                console.error('Error inserting data:', err);
-                return res.status(500).send('Server error');
+        const response = await axios.get(`https://api.zerobounce.net/v2/validate`, {
+            params: {
+                api_key: ZeroBounceApiKey,
+                email: email,
+                ip_address: '', 
             }
-            res.status(201).send('User registered successfully');
         });
+
+        console.log('ZeroBounce API Response:', response.data);
+
+        if (response.data.status === 'valid') {
+           
+            const hashedPassword = await bcrypt.hash(password, 10);
+            const query = 'INSERT INTO users (username, email, password) VALUES (?, ?, ?)';
+            db.query(query, [username, email, hashedPassword], (err, results) => {
+                if (err) {
+                    console.error('Error inserting data:', err);
+                    return res.status(500).send('Server error');
+                }
+                res.status(201).send('User registered successfully');
+            });
+        } else {
+            
+            return res.status(400).send('Invalid email address');
+        }
     } catch (error) {
-        console.error('Error hashing password:', error);
+        console.error('Error validating email:', error);
         res.status(500).send('Server error');
     }
 });

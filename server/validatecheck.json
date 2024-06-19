@@ -1,0 +1,97 @@
+{
+  email_batch: [
+    {
+      address: 'abc@gmail1.com',
+      status: 'invalid',
+      sub_status: 'possible_typo',
+      free_email: false,
+      did_you_mean: 'abc@gmail.com',
+      account: 'abc',
+      domain: 'gmail1.com',
+      domain_age_days: null,
+      smtp_provider: '',
+      mx_found: 'false',
+      mx_record: null,
+      firstname: null,
+      lastname: null,
+      gender: null,
+      country: null,
+      region: null,
+      city: null,
+      zipcode: null,
+      processed_at: '2024-06-18 15:41:54.892'
+    },
+    {
+      address: 'sa@gmail.com',
+      status: 'invalid',
+      sub_status: 'failed_syntax_check',
+      free_email: false,
+      did_you_mean: null,
+      account: '',
+      domain: '',
+      domain_age_days: '',
+      smtp_provider: '',
+      mx_found: 'false',
+      mx_record: null,
+      firstname: '',
+      lastname: '',
+      gender: '',
+      country: null,
+      region: null,
+      city: null,
+      zipcode: null,
+      processed_at: '2024-06-18 15:41:54.892'
+    }
+  ],
+  errors: []
+}
+
+{
+    "email_batch":[
+       {
+          "address":"abc@gmail1.com",
+          "status":"invalid",
+          "sub_status":"possible_typo",
+          "free_email":false,
+          "did_you_mean":"abc@gmail.com",
+          "account":"abc",
+          "domain":"gmail1.com",
+          "domain_age_days":null,
+          "smtp_provider":"",
+          "mx_found":"false",
+          "mx_record":null,
+          "firstname":null,
+          "lastname":null,
+          "gender":null,
+          "country":null,
+          "region":null,
+          "city":null,
+          "zipcode":null,
+          "processed_at":"2024-06-18 15:41:54.892"
+       },
+       {
+          "address":"sa@gmail.com",
+          "status":"invalid",
+          "sub_status":"failed_syntax_check",
+          "free_email":false,
+          "did_you_mean":null,
+          "account":"",
+          "domain":"",
+          "domain_age_days":"",
+          "smtp_provider":"",
+          "mx_found":"false",
+          "mx_record":null,
+          "firstname":"",
+          "lastname":"",
+          "gender":"",
+          "country":null,
+          "region":null,
+          "city":null,
+          "zipcode":null,
+          "processed_at":"2024-06-18 15:41:54.892"
+       }
+    ],
+    "errors":[
+       
+    ]
+ }
