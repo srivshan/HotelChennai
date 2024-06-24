@@ -1,30 +1,30 @@
+require('dotenv').config(); // Load environment variables from .env file
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const bcrypt = require('bcrypt');
-const cors=require('cors');
+const cors = require('cors');
 const axios = require('axios');
 const app = express();
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            
-   optionSuccessStatus:200,
+const corsOptions = {
+    origin: '*', 
+    credentials: true,            
+    optionSuccessStatus: 200,
 }
 
-app.use(cors(corsOptions)) 
-
+app.use(cors(corsOptions));
 
 const port = 8000;
 
 // Middleware
 app.use(bodyParser.json());
 
-// MySQL connection
+// MySQL connection using environment variables
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'SriMysql45#',
-    database: 'server'
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
 });
 
 db.connect((err) => {
@@ -34,7 +34,6 @@ db.connect((err) => {
     }
     console.log('Connected to the MySQL database.');
 });
-
 
 
 
